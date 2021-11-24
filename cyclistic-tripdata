@@ -1,0 +1,501 @@
+-- LOAD DATA
+
+USE agnesdb;
+CREATE TABLE april_2020 (
+	ride_id varchar(255),
+    rideable_type varchar(255),
+    started_at datetime,
+    ended_at datetime,
+    ride_length time,
+    day_of_week int,
+    start_station_name varchar(255),
+    start_station_id double,
+    end_station_name varchar(255),
+    end_station_id double,
+    start_lat float,
+    start_lng float,
+    end_lat float,
+    end_lng float,
+    member_casual varchar(255));
+
+-- import csv file for april 2020
+LOAD DATA LOCAL INFILE 'C:/Users/Agnes Chintia Dewi/Downloads/cyclist/zip/202004-divvy-tripdata.csv'
+INTO TABLE april_2020
+FIELDS TERMINATED BY ';'
+LINES TERMINATED BY '\n' 
+
+
+-- create may 2020 table
+CREATE TABLE may_2020 (
+	ride_id varchar(255),
+    rideable_type varchar(255),
+    started_at datetime,
+    ended_at datetime,
+    ride_length time,
+    day_of_week int,
+    start_station_name varchar(255),
+    start_station_id double,
+    end_station_name varchar(255),
+    end_station_id double,
+    start_lat float,
+    start_lng float,
+    end_lat float,
+    end_lng float,
+    member_casual varchar(255));
+
+-- import csv file for april 2020
+LOAD DATA LOCAL INFILE 'C:/Users/Agnes Chintia Dewi/Downloads/cyclist/zip/202005-divvy-tripdata.csv'
+INTO TABLE may_2020
+FIELDS TERMINATED BY ';'
+LINES TERMINATED BY '\n'
+
+-- create june 2020 table
+CREATE TABLE june_2020 (
+	ride_id varchar(255),
+    rideable_type varchar(255),
+    started_at datetime,
+    ended_at datetime,
+    ride_length time,
+    day_of_week int,
+    start_station_name varchar(255),
+    start_station_id double,
+    end_station_name varchar(255),
+    end_station_id double,
+    start_lat float,
+    start_lng float,
+    end_lat float,
+    end_lng float,
+    member_casual varchar(255));
+
+-- import csv file for june 2020
+LOAD DATA LOCAL INFILE 'C:/Users/Agnes Chintia Dewi/Downloads/cyclist/zip/202006-divvy-tripdata.csv'
+INTO TABLE june_2020
+FIELDS TERMINATED BY ';'
+LINES TERMINATED BY '\n'
+
+-- create july 2020 table
+CREATE TABLE july_2020 (
+	ride_id varchar(255),
+    rideable_type varchar(255),
+    started_at datetime,
+    ended_at datetime,
+    ride_length time,
+    day_of_week int,
+    start_station_name varchar(255),
+    start_station_id double,
+    end_station_name varchar(255),
+    end_station_id double,
+    start_lat float,
+    start_lng float,
+    end_lat float,
+    end_lng float,
+    member_casual varchar(255));
+
+-- import csv file for july 2020
+LOAD DATA LOCAL INFILE 'C:/Users/Agnes Chintia Dewi/Downloads/cyclist/zip/202007-divvy-tripdata.csv'
+INTO TABLE july_2020
+FIELDS TERMINATED BY ';'
+LINES TERMINATED BY '\n'
+
+-- create august 2020 table
+CREATE TABLE august_2020 (
+	ride_id varchar(255),
+    rideable_type varchar(255),
+    started_at datetime,
+    ended_at datetime,
+    ride_length time,
+    day_of_week int,
+    start_station_name varchar(255),
+    start_station_id double,
+    end_station_name varchar(255),
+    end_station_id double,
+    start_lat float,
+    start_lng float,
+    end_lat float,
+    end_lng float,
+    member_casual varchar(255));
+
+-- import csv file for august 2020
+LOAD DATA LOCAL INFILE 'C:/Users/Agnes Chintia Dewi/Downloads/cyclist/zip/202008-divvy-tripdata.csv'
+INTO TABLE august_2020
+FIELDS TERMINATED BY ';'
+LINES TERMINATED BY '\n'
+
+-- create september 2020 table
+CREATE TABLE september_2020 (
+	ride_id varchar(255),
+    rideable_type varchar(255),
+    started_at datetime,
+    ended_at datetime,
+    ride_length time,
+    day_of_week int,
+    start_station_name varchar(255),
+    start_station_id double,
+    end_station_name varchar(255),
+    end_station_id double,
+    start_lat float,
+    start_lng float,
+    end_lat float,
+    end_lng float,
+    member_casual varchar(255));
+
+-- import csv file for september 2020
+LOAD DATA LOCAL INFILE 'C:/Users/Agnes Chintia Dewi/Downloads/cyclist/zip/202009-divvy-tripdata.csv'
+INTO TABLE september_2020
+FIELDS TERMINATED BY ';'
+LINES TERMINATED BY '\n'
+
+-- create october 2020 table
+CREATE TABLE october_2020 (
+	ride_id varchar(255),
+    rideable_type varchar(255),
+    started_at datetime,
+    ended_at datetime,
+    ride_length time,
+    day_of_week int,
+    start_station_name varchar(255),
+    start_station_id double,
+    end_station_name varchar(255),
+    end_station_id double,
+    start_lat float,
+    start_lng float,
+    end_lat float,
+    end_lng float,
+    member_casual varchar(255));
+
+-- import csv file for october 2020
+LOAD DATA LOCAL INFILE 'C:/Users/Agnes Chintia Dewi/Downloads/cyclist/zip/202010-divvy-tripdata.csv'
+INTO TABLE october_2020
+FIELDS TERMINATED BY ';'
+LINES TERMINATED BY '\n'
+
+-- create november 2020 table
+CREATE TABLE november_2020 (
+	ride_id varchar(255),
+    rideable_type varchar(255),
+    started_at datetime,
+    ended_at datetime,
+    ride_length time,
+    day_of_week int,
+    start_station_name varchar(255),
+    start_station_id double,
+    end_station_name varchar(255),
+    end_station_id double,
+    start_lat float,
+    start_lng float,
+    end_lat float,
+    end_lng float,
+    member_casual varchar(255));
+
+-- import csv file for november 2020
+LOAD DATA LOCAL INFILE 'C:/Users/Agnes Chintia Dewi/Downloads/cyclist/zip/202011-divvy-tripdata.csv'
+INTO TABLE november_2020
+FIELDS TERMINATED BY ';'
+LINES TERMINATED BY '\n'
+
+-- create december 2020 table
+CREATE TABLE december_2020 (
+	ride_id varchar(255),
+    rideable_type varchar(255),
+    started_at datetime,
+    ended_at datetime,
+    ride_length time,
+    day_of_week int,
+    start_station_name varchar(255),
+    start_station_id double,
+    end_station_name varchar(255),
+    end_station_id double,
+    start_lat float,
+    start_lng float,
+    end_lat float,
+    end_lng float,
+    member_casual varchar(255));
+
+-- import csv file for december 2020
+LOAD DATA LOCAL INFILE 'C:/Users/Agnes Chintia Dewi/Downloads/cyclist/zip/202012-divvy-tripdata.csv'
+INTO TABLE december_2020
+FIELDS TERMINATED BY ';'
+LINES TERMINATED BY '\n'
+
+-- create january 2021 table
+CREATE TABLE january_2021 (
+	ride_id varchar(255),
+    rideable_type varchar(255),
+    started_at datetime,
+    ended_at datetime,
+    ride_length time,
+    day_of_week int,
+    start_station_name varchar(255),
+    start_station_id double,
+    end_station_name varchar(255),
+    end_station_id double,
+    start_lat float,
+    start_lng float,
+    end_lat float,
+    end_lng float,
+    member_casual varchar(255));
+
+-- import csv file for january 2021
+LOAD DATA LOCAL INFILE 'C:/Users/Agnes Chintia Dewi/Downloads/cyclist/zip/202101-divvy-tripdata.csv'
+INTO TABLE january_2021
+FIELDS TERMINATED BY ';'
+LINES TERMINATED BY '\n'
+
+-- create february 2021 table
+CREATE TABLE february_2021 (
+	ride_id varchar(255),
+    rideable_type varchar(255),
+    started_at datetime,
+    ended_at datetime,
+    ride_length time,
+    day_of_week int,
+    start_station_name varchar(255),
+    start_station_id double,
+    end_station_name varchar(255),
+    end_station_id double,
+    start_lat float,
+    start_lng float,
+    end_lat float,
+    end_lng float,
+    member_casual varchar(255));
+
+-- import csv file for february 2021
+LOAD DATA LOCAL INFILE 'C:/Users/Agnes Chintia Dewi/Downloads/cyclist/zip/202102-divvy-tripdata.csv'
+INTO TABLE february_2021
+FIELDS TERMINATED BY ';'
+LINES TERMINATED BY '\n'
+
+-- create march 2021 table
+CREATE TABLE march_2021 (
+	ride_id varchar(255),
+    rideable_type varchar(255),
+    started_at datetime,
+    ended_at datetime,
+    ride_length time,
+    day_of_week int,
+    start_station_name varchar(255),
+    start_station_id double,
+    end_station_name varchar(255),
+    end_station_id double,
+    start_lat float,
+    start_lng float,
+    end_lat float,
+    end_lng float,
+    member_casual varchar(255));
+
+-- import csv file for april 2020
+LOAD DATA LOCAL INFILE 'C:/Users/Agnes Chintia Dewi/Downloads/cyclist/zip/202103-divvy-tripdata.csv'
+INTO TABLE march_2021
+FIELDS TERMINATED BY ';'
+LINES TERMINATED BY '\n'
+
+-- joining tables by creating a new table --
+SET GLOBAL interactive_timeout=60;
+SET GLOBAL innodb_buffer_pool_size=268435456;
+
+-- create trip data table to merge all months table
+CREATE TABLE trip_data (
+	ride_id varchar(255),
+    rideable_type varchar(255),
+    started_at datetime,
+    ended_at datetime,
+    ride_length time,
+    day_of_week int,
+    start_station_name varchar(255),
+    start_station_id double,
+    end_station_name varchar(255),
+    end_station_id double,
+    start_lat float,
+    start_lng float,
+    end_lat float,
+    end_lng float,
+    member_casual varchar(255));
+
+-- merge all months table into trip data table    
+INSERT INTO trip_data
+SELECT
+	ride_id, rideable_type, started_at, ended_at, ride_length, day_of_week, start_station_name,
+    start_station_id, end_station_name, end_station_id, start_lat, start_lng, end_lat, end_lng,
+    member_casual
+FROM april_2020
+UNION
+SELECT
+	ride_id, rideable_type, started_at, ended_at, ride_length, day_of_week, start_station_name,
+    start_station_id, end_station_name, end_station_id, start_lat, start_lng, end_lat, end_lng,
+    member_casual
+FROM may_2020
+UNION
+SELECT
+	ride_id, rideable_type, started_at, ended_at, ride_length, day_of_week, start_station_name,
+    start_station_id, end_station_name, end_station_id, start_lat, start_lng, end_lat, end_lng,
+    member_casual
+FROM june_2020
+UNION
+SELECT
+	ride_id, rideable_type, started_at, ended_at, ride_length, day_of_week, start_station_name,
+    start_station_id, end_station_name, end_station_id, start_lat, start_lng, end_lat, end_lng,
+    member_casual
+FROM july_2020
+UNION
+SELECT
+	ride_id, rideable_type, started_at, ended_at, ride_length, day_of_week, start_station_name,
+    start_station_id, end_station_name, end_station_id, start_lat, start_lng, end_lat, end_lng,
+    member_casual
+FROM august_2020
+UNION
+SELECT
+	ride_id, rideable_type, started_at, ended_at, ride_length, day_of_week, start_station_name,
+    start_station_id, end_station_name, end_station_id, start_lat, start_lng, end_lat, end_lng,
+    member_casual
+FROM september_2020
+UNION
+SELECT
+	ride_id, rideable_type, started_at, ended_at, ride_length, day_of_week, start_station_name,
+    start_station_id, end_station_name, end_station_id, start_lat, start_lng, end_lat, end_lng,
+    member_casual
+FROM october_2020
+UNION
+SELECT
+	ride_id, rideable_type, started_at, ended_at, ride_length, day_of_week, start_station_name,
+    start_station_id, end_station_name, end_station_id, start_lat, start_lng, end_lat, end_lng,
+    member_casual
+FROM november_2020
+UNION
+SELECT
+	ride_id, rideable_type, started_at, ended_at, ride_length, day_of_week, start_station_name,
+    start_station_id, end_station_name, end_station_id, start_lat, start_lng, end_lat, end_lng,
+    member_casual
+FROM december_2020
+UNION
+SELECT
+	ride_id, rideable_type, started_at, ended_at, ride_length, day_of_week, start_station_name,
+    start_station_id, end_station_name, end_station_id, start_lat, start_lng, end_lat, end_lng,
+    member_casual
+FROM january_2021
+UNION
+SELECT
+	ride_id, rideable_type, started_at, ended_at, ride_length, day_of_week, start_station_name,
+    start_station_id, end_station_name, end_station_id, start_lat, start_lng, end_lat, end_lng,
+    member_casual
+FROM february_2021
+UNION
+SELECT
+	ride_id, rideable_type, started_at, ended_at, ride_length, day_of_week, start_station_name,
+    start_station_id, end_station_name, end_station_id, start_lat, start_lng, end_lat, end_lng,
+    member_casual
+FROM march_2021
+
+-- calculate average of ride_length
+SELECT 
+	SEC_TO_TIME(AVG(TIME_TO_SEC (ride_length))) AS avg_rides
+FROM trip_data
+
+-- average ride_length by member_casual
+SELECT
+	member_casual, SEC_TO_TIME(AVG(TIME_TO_SEC(ride_length))) AS avg_member
+FROM trip_data
+GROUP BY member_casual
+
+-- average ride_length by day_of_week by member_casual
+SELECT 
+	SEC_TO_TIME(AVG(TIME_TO_SEC(ride_length))) AS avg_time, day_of_week
+FROM trip_data
+GROUP BY day_of_week
+HAVING day_of_week > 0
+
+-- number of rides by day_of_week
+SELECT 
+	COUNT(DISTINCT ride_id) AS num_of_rides, day_of_week
+FROM trip_data
+GROUP BY day_of_week
+HAVING day_of_week > 0
+
+-- number of rides by rideable_type
+SELECT
+	COUNT(DISTINCT ride_id), rideable_type
+FROM trip_data
+GROUP BY rideable_type
+
+-- number of rides of members by month
+SELECT
+	COUNT(DISTINCT ride_id), member_casual, MONTH(started_at) AS ride_month
+FROM trip_data
+WHERE member_casual LIKE 'member%'
+GROUP BY ride_month
+
+-- number of rides of casuals by month
+SELECT
+	COUNT(DISTINCT ride_id), member_casual, MONTH(started_at) AS ride_month
+FROM trip_data
+WHERE member_casual LIKE 'casual%'
+GROUP BY ride_month
+
+-- total number of rides by months
+SELECT
+	COUNT(DISTINCT ride_id), MONTH(started_at) AS ride_month
+FROM trip_data
+GROUP BY ride_month
+HAVING ride_month > 0 
+
+-- ride length according to part of the day
+SELECT
+	SEC_TO_TIME(AVG(TIME_TO_SEC(ride_length))) as avg_rides, 
+    (CASE 
+    WHEN TIME(started_at) >= '05:00:00' and TIME(started_at) < '12:00:00' THEN 'Morning'
+    WHEN TIME(started_at) >= '12:00:00' and TIME(started_at) < '17:00:00' THEN 'Afternoon'
+    WHEN TIME(started_at) >= '17:00:00' and TIME(started_at) < '20:00:00' THEN 'Evening'
+    ELSE 'Night'
+    END) AS part_of_day
+FROM trip_data
+GROUP BY part_of_day
+
+-- day_of_week by part of day
+SELECT
+	COUNT(day_of_week) AS num_of_rides,
+    (CASE 
+    WHEN TIME(started_at) >= '05:00:00' and TIME(started_at) < '12:00:00' THEN 'Morning'
+    WHEN TIME(started_at) >= '12:00:00' and TIME(started_at) < '17:00:00' THEN 'Afternoon'
+    WHEN TIME(started_at) >= '17:00:00' and TIME(started_at) < '20:00:00' THEN 'Evening'
+    ELSE 'Night'
+    END) AS part_of_day
+FROM trip_data
+GROUP BY part_of_day
+
+-- casual riders by station name
+SELECT
+	COUNT(start_station_name) AS num_start_station,
+    COUNT(end_station_name) AS num_end_station,
+    member_casual, start_station_name
+FROM trip_data
+WHERE member_casual LIKE 'casual%' and start_station_name IS NOT NULL
+GROUP BY start_station_name
+ORDER BY num_start_station DESC, num_end_station DESC
+LIMIT 10
+
+-- member riders by station name
+SELECT
+	COUNT(start_station_name) AS num_start_station,
+    COUNT(end_station_name) AS num_end_station,
+    member_casual, start_station_name
+FROM trip_data
+WHERE member_casual LIKE 'member%' and start_station_name IS NOT NULL
+GROUP BY start_station_name
+ORDER BY num_start_station DESC, num_end_station DESC
+LIMIT 10
+
+
+SET SQL_SAFE_UPDATES = 0;
+
+-- saving to csv format
+SELECT 'ride_id', 'rideable_type', 'started_at', 'ended_at', 'ride_length', 'day_of_week',
+'start_station_name', 'start_station_id', 'end_station_name', 'end_station_id', 'start_lat', 
+'start_lng', 'end_lat', 'end_lng', 'member_casual'
+UNION ALL
+SELECT ride_id, rideable_type, started_at, ended_at, ride_length, day_of_week,
+start_station_name, start_station_id, end_station_name, end_station_id, start_lat, start_lng,
+end_lat, end_lng, member_casual
+	FROM trip_data
+	INTO OUTFILE 'C:/Users/Agnes Chintia Dewi/Downloads/cyclist/zip/trip_data.csv'
+	FIELDS TERMINATED BY ';'
+	ENCLOSED BY '"'
+	LINES TERMINATED BY '\n'
