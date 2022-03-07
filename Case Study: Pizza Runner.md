@@ -231,6 +231,8 @@ FROM customer_orders);
   5. Generate an alphabetically ordered comma separated ingredient list for each pizza order from the customer_orders table and add a 2x in front of any relevant ingredients
       * For example: "Meat Lovers: 2xBacon, Beef, ... , Salami"
   6. What is the total quantity of each ingredient used in all delivered pizzas sorted by most frequent first?
+  
+  You can find the solution <a href="https://github.com/agneschintia/MySQL-Projects/blob/myportfolio/Ingredient%20Optimization.md">here</a>
  
   <h2 align="left">D. Pricing and Ratings</h2>
   
