@@ -215,6 +215,8 @@ FROM customer_orders);
   5. What was the difference between the longest and shortest delivery times for all orders?
   6. What was the average speed for each runner for each delivery and do you notice any trend for these values?
   7. What is the successful delivery percentage for each runner?
+  
+  You can find the solution <a href="https://github.com/agneschintia/MySQL-Projects/blob/myportfolio/Runner%20and%20Customer%20Experience.md">here</a>
  
  <h2 align="left">C. Ingredient Optimisation</h2>
  
