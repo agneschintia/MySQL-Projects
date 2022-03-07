@@ -145,4 +145,4 @@ GROUP BY tpr.toppings
 ORDER BY qty_ingredient desc;
 ```
 Result: </br>
-<img width="249" alt="6" src="https://user-images.githubusercontent.com/79323632/156982883-3e4eb154-39e0-4df9-8788-382d0f292899.PNG">
+<img width="251" alt="6" src="https://user-images.githubusercontent.com/79323632/156983345-71043bc6-2b92-4649-8763-c32097e2cad5.PNG">
