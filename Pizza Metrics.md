@@ -28,7 +28,7 @@ SELECT
 	runner_id,
 	COUNT(order_id) AS successful_orders
 FROM temp_runner_orders
-WHERE cancellation is null
+WHERE cancellation = ' '
 GROUP BY runner_id;
 ```
 
@@ -46,7 +46,7 @@ SELECT
 FROM temp_customer_orders tco
 JOIN pizza_names pn ON tco.pizza_id = pn.pizza_id
 JOIN temp_runner_orders tro ON tro.order_id = tco.order_id
-WHERE tro.cancellation is null
+WHERE tro.cancellation = ' '
 GROUP BY pn.pizza_name;
 ```
 
@@ -81,7 +81,7 @@ WITH cte_pizza AS (
 		COUNT(tco.pizza_id) AS count_pizza
 	FROM temp_customer_orders tco
 	JOIN temp_runner_orders tro ON tco.order_id = tro.order_id
-	WHERE tro.cancellation is null
+	WHERE tro.cancellation = ' '
 	GROUP BY order_id)
 SELECT
 	MAX(count_pizza) AS max_num_pizza
@@ -121,7 +121,7 @@ SELECT
 	COUNT(tco.order_id) AS count_pizza
 FROM temp_customer_orders tco
 JOIN temp_runner_orders tro ON tco.order_id = tro.order_id
-WHERE tco.exclusions != "" AND tco.extras != "" AND tro.cancellation is null
+WHERE tco.exclusions != "" AND tco.extras != "" AND tro.cancellation = ' '
 GROUP BY tco.customer_id;
 ```
 
@@ -135,7 +135,7 @@ SELECT
 	HOUR(order_date) AS hour_of_day,
 	COUNT(order_id) AS pizza_volume
 FROM temp_customer_orders
-WHERE order_date is not null
+WHERE order_date != ' '
 GROUP BY hour_of_day
 ORDER BY hour_of_day;
 ```
