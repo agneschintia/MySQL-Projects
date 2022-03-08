@@ -140,7 +140,7 @@ JOIN temp_customer_orders tco ON tpr.pizza_id = tco.pizza_id
 LEFT JOIN temp_runner_orders tro ON tro.order_id = tco.order_id
 JOIN pizza_toppings pt ON pt.topping_id = tpr.toppings
 JOIN pizza_names pn ON pn.pizza_id = tco.pizza_id
-WHERE tro.cancellation is null
+WHERE tro.cancellation != " "
 GROUP BY tpr.toppings
 ORDER BY qty_ingredient desc;
 ```
