@@ -10,7 +10,7 @@ SELECT
             END) AS total_price
 FROM temp_runner_orders tro
 JOIN temp_customer_orders tco ON tco.order_id = tro.order_id
-WHERE tro.cancellation is null;
+WHERE tro.cancellation != " ";
 ```
 
 Result: </br>
@@ -29,7 +29,7 @@ WITH cte_price AS (
 				END) AS total_price
 	FROM temp_runner_orders tro
 	JOIN temp_customer_orders tco ON tco.order_id = tro.order_id
-	WHERE tro.cancellation is null)
+	WHERE tro.cancellation != " ")
 SELECT (
 	LENGTH(group_concat(tco.extras)) - LENGTH(REPLACE(group_concat(tco.extras), ',', '')) + 1) + cp.total_price
     AS total_price_charges
