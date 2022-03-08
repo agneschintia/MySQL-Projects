@@ -148,28 +148,37 @@ Again, there are many questions in this case study - please feel free to pick an
  
  ```
  # Runner orders temporary table
- DROP TEMPORARY TABLE IF EXISTS temp_runner_orders;
+DROP TEMPORARY TABLE IF EXISTS temp_runner_orders;
 CREATE TEMPORARY TABLE temp_runner_orders (
 SELECT 
 	order_id,
-    runner_id,
-    CASE 
-		WHEN pickup_time = 'null' THEN null 
+    	runner_id,
+    	CASE 
+		WHEN pickup_time LIKE '%null%' THEN ' ' 
         ELSE pickup_time
 	END AS pickup_time,
-    NULLIF(REGEXP_REPLACE(distance, '[^0-9.]',''), '') AS distance,
-    NULLIF(REGEXP_REPLACE(duration, '[^0-9.]',''), '') AS duration,
-    CASE
-		WHEN cancellation = '' THEN null
-        WHEN cancellation = 'null' THEN null
-        ELSE cancellation
+    	CASE
+	  WHEN distance LIKE '%null%' THEN ' '
+	  WHEN distance LIKE '%km%' THEN TRIM('km' from distance)
+	  ELSE distance 
+    	END AS distance,
+  	CASE
+	  WHEN duration LIKE '%null%' THEN ' '
+	  WHEN duration LIKE '%mins%' THEN TRIM('mins' from duration)
+	  WHEN duration LIKE '%minute%' THEN TRIM('minute' from duration)
+	  WHEN duration LIKE '%minutes%' THEN TRIM('minutes' from duration)
+	  ELSE duration
+	END AS duration,
+  	CASE
+	  WHEN cancellation IS NULL or cancellation LIKE '%null%' THEN ' '
+	  ELSE cancellation
 	END AS cancellation
 FROM runner_orders);
 
-SELECT 
-	*,
-    CAST(pickup_time AS datetime) AS pickup_time
-FROM temp_runner_orders;
+ALTER TABLE temp_runner_orders
+MODIFY COLUMN pickup_time DATETIME,
+MODIFY COLUMN distance FLOAT,
+MODIFY COLUMN duration INT;
 
 -- Customer orders temporary table
 DROP TEMPORARY TABLE IF EXISTS temp_customer_orders;
@@ -179,13 +188,13 @@ SELECT
     customer_id,
     pizza_id,
     CASE
-		WHEN exclusions = 'null' THEN ''
-		ELSE exclusions
+	WHEN exclusions LIKE '%null%' THEN ' '
+	ELSE exclusions
 	END AS exclusions,
     CASE
-		WHEN extras = 'null' THEN ''
-        WHEN extras is null THEN ''
-		ELSE extras
+	WHEN extras LIKE '%null%' THEN ' '
+        WHEN extras is null THEN ' '
+	ELSE extras
 	END AS extras,
     order_date
 FROM customer_orders);
