@@ -130,7 +130,7 @@ SELECT
     ROUND(60 * distance / duration, 1) AS speedKmH
 FROM temp_runner_orders tro
 JOIN cte_order co ON co.order_id = tro.order_id
-WHERE distance is not null
+WHERE distance != " "
 GROUP BY tro.runner_id, tro.order_id
 ORDER BY tro.order_id;
 ```
