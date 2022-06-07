@@ -42,3 +42,19 @@ SELECT
 FROM subscriptions
 WHERE plan_id = 4;
 ```
+We can use the WHERE clause to filter only the customers who have churned the subscriptions and also we use COUNT statement to count the records.
+To calculate the percentage, total records multiplied by 100 and divided by total of customers. We use ROUND clause to rounded the percentage to 1 decimal place.
+
+5. How many customers have churned straight after their initial free trial - what percentage is this rounded to the nearest whole number?
+```
+WITH cte_churn AS (
+	SELECT
+		*,
+		LAG(plan_id, 1) OVER(PARTITION BY customer_id ORDER BY plan_id) AS prev_plan
+	FROM subscriptions)
+SELECT
+	COUNT(prev_plan) AS cnt_churn,
+    ROUND(COUNT(*) * 100/(SELECT COUNT(DISTINCT customer_id) FROM subscriptions),0) AS perc_churn
+FROM cte_churn
+WHERE plan_id = 4 and prev_plan = 0;
+```
