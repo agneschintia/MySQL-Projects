@@ -77,7 +77,8 @@ WHERE next_plan is not null and plan_id = 0
 GROUP BY next_plan
 ORDER BY next_plan;
 ```
-* First, we create CTE to look forward a  number of rows and access data of that row from the current row.
+* First, we create CTE to look forward a number of rows and access data of that row from the current row by using LEAD clause and named it as next_plan.
+* To calculate the percentage, we can multiply the number of transactions by 100 and divide it by the number of customer.
 * Filter the plan_id = 0 because we want to find the percentage of the trial plan.
 
 7. What is the customer count and percentage breakdown of all 5 plan_name values at 2020-12-31?
@@ -104,6 +105,10 @@ FROM plans_breakdown
 GROUP BY plan_id, num_customer
 ORDER BY plan_id;
 ```
+To breakdown all 5 plan_name at the exact date which is 2020-12-31, there are few steps to do:
+* create CTE to find out the date everytime the customers change their subscription plans, then filter the start_date less or equal to '2020-12-31'. I named it as cte_next_date.
+* I created other cte to count how many customers take each subscriptions.
+* Last, outside the cte we call the plan_id, total customers of each plans, and the percentage of each plans.
 
 8. How many customers have upgraded to an annual in 2020?
 ```
@@ -112,6 +117,7 @@ SELECT
 FROM subscriptions
 WHERE plan_id = 3 AND start_date <= '2020-12-31';
 ```
+use the COUNT clause to find the number of customers who take the 'pro annual' that we can filter using the WHERE clause of plan_id = 3.
 
 9. How many days on average does it take for a customer to an annual plan from the day they join Foodie-Fi?
 ```
@@ -120,7 +126,7 @@ WITH annual_plan AS (
 		customer_id,
         start_date AS annual_date
 	FROM subscriptions
-    WHERE plan_id = 3),
+    	WHERE plan_id = 3),
 trial_plan AS (
 	SELECT
 		customer_id,
@@ -133,6 +139,8 @@ SELECT
 FROM annual_plan ap
 JOIN trial_plan tp ON ap.customer_id = tp.customer_id;
 ```
+Create two CTEs to distinguish the plan_id, first cte to filter the annual plan and the second cte is to filter the trial plan using the WHERE clause.
+Then, use DATEDIFF to return the number of days between two date values, next we find the average of days for how long the customers take the annual plan using AVERAGE clause.
 
 10. Can you further breakdown this average value into 30 day periods (i.e. 0-30 days, 31-60 days etc)
 ```
@@ -161,11 +169,14 @@ SELECT
 	*, FLOOR(diff/30) AS bins
 FROM day_period)
 SELECT
-	CONCAT((bins * 30) + 1, ' - ', (bins + 1) * 30, ' days ') days,
-	COUNT(diff) total
-from bins
-group by bins;
+	CONCAT((bins * 30) + 1, ' - ', (bins + 1) * 30, ' days ') AS days,
+	COUNT(diff) AS total
+FROM bins
+GROUP BY bins;
 ```
+From the previous query we can add a few statements to breakdown the average value into 30 days period:
+* Create the new cte named bins and use the FLOOR clause to return the largest integer value that is less than or equal to the difference between annual_date and trial_date (named it as diff in day_period CTE) divided by 30.
+* Use CONCAT clause to create the 30 days period.
 
 11. How many customers downgraded from a pro monthly to a basic monthly plan in 2020?
 ```
@@ -178,5 +189,7 @@ SELECT
 	COUNT(DISTINCT customer_id) AS num_downgrade
 FROM next_plan np
 LEFT JOIN plans p ON p.plan_id = np.plan_id
-WHERE p.plan_name = 'pro monthly' AND np.plan = 1;
+WHERE p.plan_name = 'pro monthly' AND np.plan = 1 AND start_date <= '2020-12-31';
 ```
+Use LEAD clause to find out the customers' further plans, then COUNT different value of customer_id using COUNT DISTINCT.
+Last, filter the plan_name = 'pro monthly' and plan_id = 1 which is basic monthly, and start_date <= '2020-12-31'
