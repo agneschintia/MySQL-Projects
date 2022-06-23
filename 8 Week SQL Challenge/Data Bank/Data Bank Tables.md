@@ -54,6 +54,7 @@ This table stores all customer deposits, withdrawals and purchases made using th
 
 <p align="justify">
 Here is the query to create those tables in Data Bank database</p>
+
 ```
 CREATE SCHEMA data_bank;
 USE data_bank;
